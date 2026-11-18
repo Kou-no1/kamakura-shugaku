@@ -1,0 +1,18 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+require('../src/core.js');
+global.KRDictionary=JSON.parse(fs.readFileSync(__dirname+'/../src/ruby-dictionary.json'));
+require('../src/ruby.js');
+const lesson=KQ.validateLesson(JSON.parse(fs.readFileSync(__dirname+'/../src/lesson.json')));
+const shrine=lesson.places.find(p=>p.id==='hachiman');
+test('鶴岡八幡宮の七つの見学項目が別々に学習できる',()=>{assert.equal(shrine.chapters.length,7);assert.equal(new Set(shrine.chapters.map(c=>c.id)).size,7);assert.ok(shrine.chapters.every(c=>c.body&&c.question&&c.source));});
+test('六項目の学習では100％にならない',()=>{const state={learning:{hachiman:{}}};shrine.chapters.slice(0,6).forEach(c=>state.learning.hachiman[c.id]={done:true,note:''});const p=KQ.chapterProgress(lesson,state,'hachiman');assert.equal(p.done,6);assert.equal(p.complete,false);assert.equal(p.percent,85);});
+test('七項目すべての学習で見学終了を許可する',()=>{const state={learning:{hachiman:Object.fromEntries(shrine.chapters.map(c=>[c.id,{done:true,note:''}]))}};assert.deepEqual(KQ.chapterProgress(lesson,state,'hachiman'),{done:7,total:7,percent:100,complete:true});});
+test('開いただけの項目・未知の項目を学習済みに数えない',()=>{const state={learning:{hachiman:{'genji-pond':{done:false,note:'読んでいる途中'},unknown:{done:true,note:''}}}};assert.equal(KQ.chapterProgress(lesson,state,'hachiman').done,0);});
+test('学習項目がない他の見学場所のスタンプを妨げない',()=>assert.equal(KQ.chapterProgress(lesson,{learning:{}},'hase').complete,true));
+test('紹介コースは鎌倉駅から始まり、全区間を移動できる',()=>{assert.equal(lesson.routes.length,2);for(const route of lesson.routes){assert.equal(route.stops[0],'kamakura');for(let i=1;i<route.stops.length;i++)assert.ok(KQ.shortestPath(lesson,route.stops[i-1],route.stops[i]));}assert.ok(lesson.edges.some(e=>e.terrain==='hike'));});
+test('銭洗弁財天・源氏山・二つの切通を地図で見学できる',()=>{for(const id of ['zeniarai','genjiyama','kewaizaka','daibutsu-pass'])assert.ok(lesson.places.some(p=>p.id===id));assert.equal(lesson.places.length,23);});
+test('地名と歴史上の人名の読みが指定されている',()=>{for(const [name,yomi]of [['公暁','くぎょう'],['流鏑馬','やぶさめ'],['仮粧坂切通','けわいざかきりどおし'],['銭洗弁財天宇賀福神社','ぜにあらいべんざいてんうがふくじんじゃ'],['源実朝','みなもとのさねとも']])assert.equal(KR.reading(name),yomi);});
+test('提供した全ての学習文章に漢字の読みがある',()=>{const texts=[];function walk(v){if(typeof v==='string')texts.push(v);else if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==='object')Object.values(v).forEach(walk);}walk(lesson);const missing=[];for(const text of texts)for(const part of KR.segments(text))if(!part.reading&&/[\u3400-\u9fff々]/.test(part.base))missing.push(part.base);assert.deepEqual(missing,[]);});
+test('先生が指定したルビを優先し、HTML文字列は実行しない',()=>{assert.equal(KR.reading('地名《ちめい》'),'ちめい');const html=KR.html('<img src=x onerror=alert(1)>漢字《かんじ》');assert.ok(!html.includes('<img'));assert.ok(html.includes('&lt;img'));assert.ok(html.includes('<rt aria-hidden="true">かんじ</rt>'));});
+test('GitHub Pagesのサブフォルダでもicon参照が解決する',()=>{const html=fs.readFileSync(__dirname+'/../dist/index.html','utf8');for(const match of html.matchAll(/<link[^>]*href="(\.\/[^\"]+)"[^>]*data-external-icon/g)){const relative=match[1];assert.ok(fs.existsSync(path.join(__dirname,'../dist',relative)));assert.ok(new URL(relative,'https://example.github.io/kamakura/').pathname.startsWith('/kamakura/'));}const manifest=JSON.parse(fs.readFileSync(__dirname+'/../site.webmanifest'));for(const icon of manifest.icons)assert.ok(fs.existsSync(path.join(__dirname,'../dist',icon.src)));assert.equal(manifest.start_url,'./');});
+test('不正な紹介ルートIDや重複した学習項目を拒否する',()=>{const a=structuredClone(lesson);a.routes[0].id='" onclick="alert(1)';assert.throws(()=>KQ.validateLesson(a));const b=structuredClone(lesson);b.places[0].chapters.push(b.places[0].chapters[0]);assert.throws(()=>KQ.validateLesson(b));});

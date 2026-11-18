@@ -1,0 +1,704 @@
+{
+  "schema": "kamakura-quest/1",
+  "id": "kamakura-demo-v1",
+  "title": "鎌倉と江の島、発見の旅",
+  "version": 2,
+  "mission": {
+    "start": "hachiman",
+    "goal": "enosui",
+    "checkpoints": [
+      "daibutsu",
+      "enoshima"
+    ],
+    "startTime": "09:00",
+    "endTime": "14:00",
+    "budget": 500,
+    "requireNote": false,
+    "prompt": "歴史のひみつと海の自然を見つけよう。大仏と江ノ島駅を通って、水族館へ！",
+    "ticketMinutes": 5,
+    "allowanceMode": false,
+    "allowance": 3000
+  },
+  "places": [
+    {
+      "id": "hachiman",
+      "name": "鶴岡八幡宮",
+      "lat": 35.3261,
+      "lng": 139.5565,
+      "category": "history",
+      "headline": "七つの発見で、境内探検を完成させよう",
+      "story": "鶴岡八幡宮の境内には、池・橋・馬場・建物・木など、歴史を学ぶ手がかりがたくさんあります。見出しから一つずつ開き、読んだことや観察したことを確かめよう。七つすべてを学習すると進み具合が100％になり、見学終了スタンプを押せます。",
+      "question": "頼朝がこの場所をまちづくりの中心に選んだ理由を、地図から考えよう。",
+      "tip": "階段では横に広がらず、参拝している人の通り道を空けよう。",
+      "source": "https://www.hachimangu.or.jp/matsuri/",
+      "photos": [],
+      "itemName": "まちづくりの巻物",
+      "itemDescription": "武士の都の地形とまちづくりを考えた証。",
+      "itemType": "scroll",
+      "fee": null,
+      "chapters": [
+        {
+          "id": "genji-pond",
+          "title": "源氏池：三つの島にこめた願い",
+          "location": "参道の東側・源氏池",
+          "kind": "名前にこめられた意味",
+          "body": "参道の東側にあるのが源氏池です。鶴岡八幡宮の案内では、三つの島の「三」を「産」に重ね、源氏の繁栄を願ったと説明されています。池や島の配置にも、当時の人々の思いが表れています。",
+          "question": "池の島を数えてみよう。まちや庭の形に願いをこめるのは、どんな気持ちからだろう？",
+          "source": "https://www.hachimangu.or.jp/sightseeing/keidai/"
+        },
+        {
+          "id": "heike-pond",
+          "title": "平家池：源氏池と比べてみよう",
+          "location": "参道の西側・平家池",
+          "kind": "伝えられている意味",
+          "body": "参道の西側が平家池です。四つの島の「四」と「死」の音を重ね、平家の衰退を願ったという説明が伝わっています。源氏池と平家池を一緒に見て、源氏と平家が争った時代の人々の思いを考えてみよう。",
+          "question": "二つの池は、参道をはさんでどのように向かい合っている？ 名前と島の数を比べてみよう。",
+          "source": "https://www.hachimangu.or.jp/sightseeing/keidai/"
+        },
+        {
+          "id": "taiko-bridge",
+          "title": "太鼓橋：正面と横から形を見よう",
+          "location": "三の鳥居の先・池の間",
+          "kind": "形と位置の観察",
+          "body": "太鼓橋は、池の間にかかる大きく反った橋です。正面から見ると、本宮へ続く参道とのつながりがわかります。横からは、橋がえがく曲線を観察できます。見学できる場所から、見る向きによる形の違いを比べよう。",
+          "question": "太鼓橋とまっすぐな橋では、見え方や歩きやすさがどう違いそう？ 柵や通行の表示も確かめよう。",
+          "source": "https://www.trip-kamakura.com/facility/detail.php?id=54"
+        },
+        {
+          "id": "yabusame",
+          "title": "流鏑馬馬場：馬と弓の技を想像しよう",
+          "location": "参道を横切る流鏑馬馬場",
+          "kind": "武士の技と神事",
+          "body": "流鏑馬は、走る馬に乗ったまま的に矢を射る神事です。境内には、その舞台となる長い馬場があります。馬の速さ、体のバランス、矢を射る動きを重ねて想像すると、武士に求められた技が見えてきます。",
+          "question": "馬場の長さを地図で確かめよう。馬に乗った人や見物する人には、どんな場所が必要だろう？",
+          "source": "https://www.hachimangu.or.jp/matsuri/"
+        },
+        {
+          "id": "pigeon-eight",
+          "title": "本宮の楼門：「八」にかくれた鳩を探そう",
+          "location": "大石段の上・本宮の楼門の額",
+          "kind": "文字や飾りの観察",
+          "body": "楼門の額にある「八幡宮」の「八」をよく見ると、二羽の鳩の形が見えてきます。鳩は、八幡さまのお使いとして大切にされてきました。文字や建物の飾りにも、神社と生き物のつながりが表れています。",
+          "question": "二羽の鳩はどちらを向いている？ 文字として読むときと、絵として見るときの違いを話し合おう。",
+          "source": "https://www.hachimangu.or.jp/pray/omamori.html"
+        },
+        {
+          "id": "sanetomo",
+          "title": "大石段：実朝と公暁の事件を知ろう",
+          "location": "本宮へ上がる大石段",
+          "kind": "史料と伝承を分けて読む",
+          "body": "1219年、鎌倉幕府の三代将軍・源実朝は、鶴岡八幡宮で公暁に襲われ、命を落としました。公暁は二代将軍・源頼家の子で、実朝のおいにあたります。鎌倉市の資料は、『吾妻鏡』に公暁が「石段の陰」から出てきたと記されていることを紹介しています。",
+          "detail": "公暁が大イチョウに隠れていたという話も語られています。この話と、史料で確かめられる記述を分けて読み、どの資料に何が書かれているのかを比べよう。",
+          "question": "実朝・頼家・公暁の関係を図にしてみよう。史料にあることと、後に伝えられた話をどう区別できる？",
+          "source": "https://www.city.kamakura.kanagawa.jp/kouhou/kamakura/h30/t181215-7.html"
+        },
+        {
+          "id": "great-ginkgo",
+          "title": "大イチョウ：倒れても続く命を見つけよう",
+          "location": "大石段のそば・親銀杏と子銀杏",
+          "kind": "今の姿と昔の写真を比べる",
+          "body": "大イチョウは、2010年3月10日に強風で倒れました。今は、移された幹の「親銀杏」と、もとの根元から伸びたひこばえの「子銀杏」が育っています。昔の大きな木の写真と今の姿を比べ、木の命がどのようにつながっているか考えてみよう。",
+          "question": "親銀杏と子銀杏を見分ける手がかりは？ 歴史を伝える場所を、これからどう守っていきたい？",
+          "source": "https://www.hachimangu.or.jp/sightseeing/keidai/"
+        }
+      ]
+    },
+    {
+      "id": "komachi",
+      "name": "小町通り",
+      "lat": 35.322,
+      "lng": 139.5534,
+      "category": "town",
+      "headline": "観光のまちと暮らし",
+      "story": "鎌倉駅から鶴岡八幡宮へ向かう通りの一つです。観光に来る人、お店で働く人、近くに住んでいる人。同じ道でも、使う目的はそれぞれ違います。旅を楽しむことと、まちの暮らしを大切にすることを両立させよう。",
+      "question": "お店の人や住民の人も気持ちよく過ごせるように、班でできることは？",
+      "tip": "食べるときはお店の案内に従い、立ち止まる場所を選ぼう。",
+      "source": "https://education.trip-kamakura.com/",
+      "photos": [],
+      "itemName": "まちの思いやりメダル",
+      "itemDescription": "観光する人と暮らす人の気持ちを考えた証。",
+      "itemType": "medal",
+      "fee": null
+    },
+    {
+      "id": "kamakura",
+      "name": "鎌倉駅",
+      "lat": 35.319,
+      "lng": 139.5504,
+      "category": "station",
+      "headline": "江ノ電の冒険はここから",
+      "story": "江ノ電は鎌倉と藤沢を結ぶ電車です。鶴岡八幡宮のすぐ前から乗れるわけではありません。まず鎌倉駅まで歩き、乗り場や行き先を確かめて乗車します。地図の「江ノ電に乗る」から駅を選んでみよう。",
+      "question": "乗り間違えないために、乗る前に何を確かめる？",
+      "tip": "ホームでは白線・黄色い線の内側で待ち、降りる人を先に通そう。",
+      "source": "https://www.enoden.co.jp/",
+      "photos": [],
+      "itemName": "はじまりのきっぷ",
+      "itemDescription": "乗る前に駅と行き先を確かめた証。",
+      "itemType": "train",
+      "fee": null
+    },
+    {
+      "id": "kencho",
+      "name": "建長寺",
+      "lat": 35.3316,
+      "lng": 139.5557,
+      "category": "history",
+      "headline": "山に囲まれたお寺",
+      "story": "北鎌倉から鶴岡八幡宮へ向かう途中にある禅のお寺です。建物だけでなく、参道の向きや山との位置関係も観察しよう。静けさを感じながら、同じ鎌倉にある神社との違いを探してみよう。",
+      "question": "神社とお寺の建物や入り口には、どんな違いがある？",
+      "tip": "境内では声の大きさを考え、撮影禁止の表示を確かめよう。",
+      "source": "https://education.trip-kamakura.com/",
+      "photos": [],
+      "itemName": "静けさのしおり",
+      "itemDescription": "神社とお寺の違いを見つけた証。",
+      "itemType": "scroll",
+      "fee": null
+    },
+    {
+      "id": "kita",
+      "name": "北鎌倉駅",
+      "lat": 35.337,
+      "lng": 139.5453,
+      "category": "station",
+      "headline": "山側からの入り口",
+      "story": "北鎌倉駅の周辺にはお寺が集まっています。ここはJRの駅で、江ノ電の駅ではありません。鎌倉駅との位置関係を見て、歩いて巡るときの順番を考えよう。",
+      "question": "北鎌倉から出発すると、どんな見学の順番にできそう？",
+      "tip": "踏切では止まり、遮断機が下り始めたら絶対に入らない。",
+      "source": "https://education.trip-kamakura.com/",
+      "photos": [],
+      "itemName": "山の入り口のきっぷ",
+      "itemDescription": "北鎌倉と鎌倉の位置関係を考えた証。",
+      "itemType": "train",
+      "fee": null
+    },
+    {
+      "id": "meigetsu",
+      "name": "明月院",
+      "lat": 35.3343,
+      "lng": 139.5514,
+      "category": "history",
+      "headline": "季節とお寺をつなぐ",
+      "story": "北鎌倉のお寺を巡るコースに含まれる見学場所です。建物や庭、植物の姿は季節によって変わります。写真を見比べながら、自分たちの修学旅行の季節には何を確かめたいか考えてみよう。",
+      "question": "季節が違う写真を比べると、何が変わり、何が変わらない？",
+      "tip": "植物に触れたり、花を摘んだりせずに観察しよう。",
+      "source": "https://education.trip-kamakura.com/",
+      "photos": [],
+      "itemName": "季節の葉っぱ",
+      "itemDescription": "季節と見学場所の変化を考えた証。",
+      "itemType": "leaf",
+      "fee": null
+    },
+    {
+      "id": "hokoku",
+      "name": "報国寺",
+      "lat": 35.3207,
+      "lng": 139.5693,
+      "category": "history",
+      "headline": "東のエリアにも発見が",
+      "story": "鎌倉の見学先は駅の西側だけにあるのではありません。報国寺は鶴岡八幡宮から東側のエリアにあります。行きたい場所が離れているとき、見学時間と移動時間の両方から班の計画を考えよう。",
+      "question": "東のエリアに寄るなら、他の見学先や時間をどう調整する？",
+      "tip": "このゲームの道は学習用。実際の道順は先生の案内や公式地図で確認しよう。",
+      "source": "https://www.kanagawa-kankou.or.jp/courses/14",
+      "photos": [],
+      "itemName": "寄り道の巻物",
+      "itemDescription": "時間と見学先の選び方を考えた証。",
+      "itemType": "scroll",
+      "fee": null
+    },
+    {
+      "id": "yuiga",
+      "name": "由比ガ浜",
+      "lat": 35.3086,
+      "lng": 139.5429,
+      "category": "nature",
+      "headline": "海から見る鎌倉",
+      "story": "鎌倉は南を海に、ほかの三方を山に囲まれています。浜辺から山の方を振り返ると、地図で見た地形が想像しやすくなります。歴史を調べるときも、土地の形が大切な手がかりになります。",
+      "question": "海と山に囲まれることには、どんな便利さや不便さがある？",
+      "tip": "海には入らず、決められた範囲で観察。海沿いでは避難先も確認しよう。",
+      "source": "https://education.trip-kamakura.com/",
+      "photos": [],
+      "itemName": "海辺の貝がら",
+      "itemDescription": "海と山に囲まれた地形を考えた証。",
+      "itemType": "shell",
+      "fee": null
+    },
+    {
+      "id": "daibutsu",
+      "name": "鎌倉大仏（高徳院）",
+      "lat": 35.3167,
+      "lng": 139.5357,
+      "category": "history",
+      "headline": "800年近く前からの問い",
+      "story": "高徳院の大仏は青銅製で、『吾妻鏡』には1252年に造立が始まったと記されています。像の高さは約11.3メートル。作者など、まだ明らかになっていないこともあります。歴史には「わかっていること」と「調べ続けていること」があるのです。",
+      "question": "大きな青銅の仏像をつくるには、どんな人の力や材料が必要だっただろう？",
+      "tip": "像や文化財を守るため、現地の見学ルールに従おう。",
+      "source": "https://www.kotoku-in.jp/about.html",
+      "photos": [],
+      "itemName": "青銅のメダル",
+      "itemDescription": "大仏をつくった人々の力を想像した証。",
+      "itemType": "medal",
+      "fee": null
+    },
+    {
+      "id": "hasedera",
+      "name": "長谷寺",
+      "lat": 35.3125,
+      "lng": 139.533,
+      "category": "history",
+      "headline": "お寺から海を見よう",
+      "story": "長谷寺には十一面観音像があり、境内には相模湾や街並みを見渡せる場所があります。山の中腹にあるお寺と、海辺のまち。高い場所から地形を眺めると、歩いてきた道も違って見えるかもしれません。",
+      "question": "高い場所から見える景色と地図を比べて、同じ場所を探そう。",
+      "tip": "階段があるので、班の歩く速さをそろえよう。",
+      "source": "https://www.hasedera.jp/about/",
+      "photos": [],
+      "itemName": "見晴らしのしおり",
+      "itemDescription": "高い場所の景色と地図をつなげた証。",
+      "itemType": "scroll",
+      "fee": null
+    },
+    {
+      "id": "hase",
+      "name": "長谷駅",
+      "lat": 35.3113,
+      "lng": 139.5365,
+      "category": "station",
+      "headline": "歴史の見学と電車をつなぐ",
+      "story": "大仏や長谷寺を見学する際の江ノ電の最寄り駅です。見学先から駅へ戻る時間、切符を買う時間、ホームで待つ時間も、班の計画に入れておこう。時刻表を調べ、何時の電車なら乗れるか自分たちで確かめます。",
+      "question": "出発時刻に間に合うために、見学を何時に終える？",
+      "tip": "電車の時刻と混雑は当日に確認。この画面の時間は練習用だよ。",
+      "source": "https://www.enoden.co.jp/",
+      "photos": [],
+      "itemName": "長谷のきっぷ",
+      "itemDescription": "見学と駅への移動を計画した証。",
+      "itemType": "train",
+      "fee": null
+    },
+    {
+      "id": "gokuraku",
+      "name": "極楽寺駅",
+      "lat": 35.3094,
+      "lng": 139.5282,
+      "category": "station",
+      "headline": "山から海へ",
+      "story": "江ノ電の車窓から、山側と海側で景色がどう変わるか想像してみよう。駅のまわりには生活の道があります。鉄道が、観光と地域の暮らしの両方を支えていることにも目を向けよう。",
+      "question": "観光客と住民が同じ電車を使うとき、どんな気配りができる？",
+      "tip": "線路や私有地に入らず、安全な場所から観察しよう。",
+      "source": "https://www.enoden.co.jp/",
+      "photos": [],
+      "itemName": "山あいのきっぷ",
+      "itemDescription": "地域の暮らしと鉄道を考えた証。",
+      "itemType": "train",
+      "fee": null
+    },
+    {
+      "id": "inamura",
+      "name": "稲村ヶ崎駅",
+      "lat": 35.3044,
+      "lng": 139.5231,
+      "category": "station",
+      "headline": "海辺を走る電車",
+      "story": "沿線には海が近くなる区間があります。地図で海岸の形と線路の向きを比べてみよう。道や鉄道は、平らな土地や山の位置とどんな関係があるのだろう。",
+      "question": "線路は、海岸や山を避けるようにどこを通っている？",
+      "tip": "海沿いの学習では、津波の避難先を先生と事前に確認しよう。",
+      "source": "https://www.enoden.co.jp/",
+      "photos": [],
+      "itemName": "岬の貝がら",
+      "itemDescription": "線路と海岸の関係を調べた証。",
+      "itemType": "shell",
+      "fee": null
+    },
+    {
+      "id": "shichiri",
+      "name": "七里ヶ浜駅",
+      "lat": 35.3068,
+      "lng": 139.5102,
+      "category": "station",
+      "headline": "相模湾に沿って",
+      "story": "地図で現在の場所から江の島を探してみよう。同じ海沿いでも、砂浜や岬のようすは少しずつ違います。窓から見えそうなものを予想して、実際の旅行の観察メモにつなげよう。",
+      "question": "海岸の形が変わると、人の暮らしや道はどう変わりそう？",
+      "tip": "車内では大声を出さず、景色は座席や通路をゆずり合って楽しもう。",
+      "source": "https://www.enoden.co.jp/",
+      "photos": [],
+      "itemName": "波のしおり",
+      "itemDescription": "海岸の形とまちを比べた証。",
+      "itemType": "scroll",
+      "fee": null
+    },
+    {
+      "id": "kokomae",
+      "name": "鎌倉高校前駅",
+      "lat": 35.3067,
+      "lng": 139.5008,
+      "category": "station",
+      "headline": "写真より先に、安全を",
+      "story": "人気の場所には多くの人が集まります。写真を撮りたい気持ちと、通る人の安全を両立させるにはどうすればよいでしょう。修学旅行は、まちの一員として行動する練習でもあります。",
+      "question": "人が多くて通れないとき、班でどう判断する？",
+      "tip": "車道や線路に出て写真を撮らない。通行の妨げにならないようにしよう。",
+      "source": "https://education.trip-kamakura.com/",
+      "photos": [],
+      "itemName": "安全のおまもり",
+      "itemDescription": "混雑している場所での行動を考えた証。",
+      "itemType": "medal",
+      "fee": null
+    },
+    {
+      "id": "koshigoe",
+      "name": "腰越駅",
+      "lat": 35.3085,
+      "lng": 139.4933,
+      "category": "station",
+      "headline": "まちの中を進む江ノ電",
+      "story": "駅の近くには、電車が道路上を走る区間があります。線路と道路の関係を観察してみよう。歩く人、自動車、電車が同じ地域を使うためのルールを考える手がかりになります。",
+      "question": "電車が道路を走る場所では、歩く人は何に気をつける？",
+      "tip": "線路を横切るときは決められた場所を使おう。",
+      "source": "https://www.enoden.co.jp/",
+      "photos": [],
+      "itemName": "まちを走るきっぷ",
+      "itemDescription": "道路と電車の関係を考えた証。",
+      "itemType": "train",
+      "fee": null
+    },
+    {
+      "id": "enoshima",
+      "name": "江ノ島駅",
+      "lat": 35.3113,
+      "lng": 139.4878,
+      "category": "station",
+      "headline": "駅に着いても、もうひと歩き",
+      "story": "ここは江ノ電の江ノ島駅です。小田急の片瀬江ノ島駅とは別の駅です。新江ノ島水族館までは公式案内で徒歩約10分。降りた駅の名前とゴールまでの道を確かめよう。",
+      "question": "江ノ島駅・片瀬江ノ島駅・湘南江の島駅を取り違えない工夫は？",
+      "tip": "改札を出る前に班の人数を確認し、広がらずに歩こう。",
+      "source": "https://www.enosui.com/access.php",
+      "photos": [],
+      "itemName": "江の島へのきっぷ",
+      "itemDescription": "似ている駅の名前を確かめた証。",
+      "itemType": "train",
+      "fee": null
+    },
+    {
+      "id": "enosui",
+      "name": "新江ノ島水族館",
+      "lat": 35.309,
+      "lng": 139.4803,
+      "category": "nature",
+      "headline": "海の中にも、もう一つの地図",
+      "story": "相模湾大水槽では、相模湾の岩場や沖のようすが再現されています。水深や場所が変わると、見られる魚も変わります。鎌倉の地形を調べたように、海の中でも「場所と生き物の関係」を探してみよう。",
+      "question": "岩場・海の沖・深さの違いで、生き物のすみかはどう変わる？",
+      "tip": "館内ではフラッシュなどの撮影ルールを確かめ、ほかの人にも見えるようにしよう。",
+      "source": "https://www.enosui.com/exhibition_sagami.php",
+      "photos": [],
+      "itemName": "相模湾の図鑑",
+      "itemDescription": "生き物とすみかの関係を考えた証。",
+      "itemType": "fish",
+      "fee": null
+    },
+    {
+      "id": "island",
+      "name": "江の島",
+      "lat": 35.3017,
+      "lng": 139.4816,
+      "category": "nature",
+      "headline": "陸と島をつなぐ道",
+      "story": "橋を渡ると江の島です。海岸、島、丘の位置を見て、自分たちの見学ルートを考えてみよう。行きたい場所を増やすだけでなく、集合場所へ戻るための時間も必要になります。",
+      "question": "島まで寄り道したいとき、班の計画のどこを見直す？",
+      "tip": "階段や坂もあるので、歩く時間には余裕を持とう。",
+      "source": "https://www.fujisawa-kanko.jp/",
+      "photos": [],
+      "itemName": "島の貝がら",
+      "itemDescription": "寄り道と集合時刻の計画を考えた証。",
+      "itemType": "shell",
+      "fee": null
+    },
+    {
+      "id": "zeniarai",
+      "name": "銭洗弁財天宇賀福神社",
+      "mapName": "銭洗弁財天",
+      "lat": 35.32581,
+      "lng": 139.54225,
+      "category": "history",
+      "headline": "水と祈りのつながりを調べよう",
+      "story": "銭洗弁財天は、岩の間から湧く水と結びついた神社です。頼朝の夢のお告げから始まったという話や、北条時頼が銭を洗って祈ったという話が伝わっています。伝えられた物語と、今も続く人々の祈りを分けて考えてみよう。",
+      "question": "人々は水で銭を洗うことに、どんな願いをこめてきたのだろう？ 水が湧く場所の地形にも注目しよう。",
+      "tip": "参拝の順序や銭を洗う方法は現地の案内で確かめよう。坂道を含むので歩く時間も考えよう。",
+      "source": "https://www.trip-kamakura.com/facility/detail.php?id=48",
+      "itemName": "清らかな水のしおり",
+      "itemDescription": "水と人々の祈りのつながりを考えた証。",
+      "itemType": "shell",
+      "photos": [],
+      "fee": null,
+      "chapters": []
+    },
+    {
+      "id": "genjiyama",
+      "name": "源氏山公園",
+      "lat": 35.32485,
+      "lng": 139.54628,
+      "category": "nature",
+      "headline": "山の上から武士のまちを考えよう",
+      "story": "源氏山公園には、源頼朝の像や緑に囲まれた広場があります。近くには仮粧坂があり、北鎌倉や大仏方面へ向かう山道にもつながっています。山に囲まれた鎌倉で、人々がどこを通ってまちに出入りしたのか、地図を手がかりに考えよう。",
+      "question": "山の上と駅の周りでは、道の向きや歩きやすさがどう違う？ 集合時刻に間に合う計画を考えよう。",
+      "tip": "坂や起伏があるので、班の歩く速さをそろえよう。休憩と見学に使う時間も自分たちで見積もろう。",
+      "source": "https://www.city.kamakura.kanagawa.jp/koen/p_genjiyama.html",
+      "itemName": "頼朝の山のメダル",
+      "itemDescription": "山の地形とまちの出入り口を考えた証。",
+      "itemType": "leaf",
+      "photos": [],
+      "fee": null,
+      "chapters": []
+    },
+    {
+      "id": "kewaizaka",
+      "name": "仮粧坂切通",
+      "lat": 35.3269,
+      "lng": 139.5461,
+      "category": "history",
+      "headline": "山を切り開いた道を見つけよう",
+      "story": "仮粧坂は、鎌倉と外の土地を結ぶ道の一つで、坂を上ると源氏山公園へつながります。「化粧坂」とも書き、読み方には「けわいざか」「けはいざか」があります。切通とは、山の尾根などを切り開いて通れるようにした道です。交通とまちの守りの両方から、道の意味を考えよう。",
+      "question": "山を切り開いた道は、人や物の移動にどんな役割を果たした？ 今の道と比べてみよう。",
+      "tip": "石や土が露出した滑りやすい坂です。現地へ行く計画は、先生の下見や最新の通行案内を確かめてから立てよう。",
+      "source": "https://www.trip-kamakura.com/facility/detail.php?id=168",
+      "itemName": "切通の探検メダル",
+      "itemDescription": "昔の道と地形の関係を見つけた証。",
+      "itemType": "medal",
+      "photos": [],
+      "fee": null,
+      "chapters": []
+    },
+    {
+      "id": "daibutsu-pass",
+      "name": "大仏切通",
+      "lat": 35.31878,
+      "lng": 139.53153,
+      "category": "history",
+      "headline": "山道に残る昔の道をたどろう",
+      "story": "大仏切通は、長谷から常盤を経て藤沢方面へ通じる古い道です。両側に岩や崖が迫る場所があり、狭く急な古道の様子が残っています。葛原岡・大仏ハイキングコースの終わり近くの分岐から、切通方面へ向かうこともできます。",
+      "question": "道の幅や坂の急さは、荷物を運ぶ人や馬の移動にどう影響しただろう？",
+      "tip": "自然の山道と急な場所を含みます。実際の分岐や通行できる区間は、先生と公式地図で確認しよう。",
+      "source": "https://www.trip-kamakura.com/facility/detail.php?id=176",
+      "itemName": "古道の巻物",
+      "itemDescription": "山道に残る交通の歴史を調べた証。",
+      "itemType": "scroll",
+      "photos": [],
+      "fee": null,
+      "chapters": []
+    }
+  ],
+  "edges": [
+    {
+      "a": "hachiman",
+      "b": "komachi",
+      "mode": "walk"
+    },
+    {
+      "a": "komachi",
+      "b": "kamakura",
+      "mode": "walk"
+    },
+    {
+      "a": "hachiman",
+      "b": "kencho",
+      "mode": "walk"
+    },
+    {
+      "a": "kencho",
+      "b": "kita",
+      "mode": "walk"
+    },
+    {
+      "a": "kita",
+      "b": "meigetsu",
+      "mode": "walk"
+    },
+    {
+      "a": "meigetsu",
+      "b": "kencho",
+      "mode": "walk"
+    },
+    {
+      "a": "hachiman",
+      "b": "hokoku",
+      "mode": "walk"
+    },
+    {
+      "a": "kamakura",
+      "b": "yuiga",
+      "mode": "walk"
+    },
+    {
+      "a": "yuiga",
+      "b": "hase",
+      "mode": "walk"
+    },
+    {
+      "a": "kamakura",
+      "b": "daibutsu",
+      "mode": "walk"
+    },
+    {
+      "a": "daibutsu",
+      "b": "hasedera",
+      "mode": "walk"
+    },
+    {
+      "a": "hasedera",
+      "b": "hase",
+      "mode": "walk"
+    },
+    {
+      "a": "hase",
+      "b": "daibutsu",
+      "mode": "walk"
+    },
+    {
+      "a": "hase",
+      "b": "gokuraku",
+      "mode": "walk"
+    },
+    {
+      "a": "gokuraku",
+      "b": "inamura",
+      "mode": "walk"
+    },
+    {
+      "a": "inamura",
+      "b": "shichiri",
+      "mode": "walk"
+    },
+    {
+      "a": "shichiri",
+      "b": "kokomae",
+      "mode": "walk"
+    },
+    {
+      "a": "kokomae",
+      "b": "koshigoe",
+      "mode": "walk"
+    },
+    {
+      "a": "koshigoe",
+      "b": "enoshima",
+      "mode": "walk"
+    },
+    {
+      "a": "enoshima",
+      "b": "enosui",
+      "mode": "walk"
+    },
+    {
+      "a": "enoshima",
+      "b": "island",
+      "mode": "walk"
+    },
+    {
+      "a": "enosui",
+      "b": "island",
+      "mode": "walk"
+    },
+    {
+      "a": "kamakura",
+      "b": "hase",
+      "mode": "train"
+    },
+    {
+      "a": "hase",
+      "b": "gokuraku",
+      "mode": "train"
+    },
+    {
+      "a": "gokuraku",
+      "b": "inamura",
+      "mode": "train"
+    },
+    {
+      "a": "inamura",
+      "b": "shichiri",
+      "mode": "train"
+    },
+    {
+      "a": "shichiri",
+      "b": "kokomae",
+      "mode": "train"
+    },
+    {
+      "a": "kokomae",
+      "b": "koshigoe",
+      "mode": "train"
+    },
+    {
+      "a": "koshigoe",
+      "b": "enoshima",
+      "mode": "train"
+    },
+    {
+      "a": "kamakura",
+      "b": "zeniarai",
+      "mode": "walk",
+      "terrain": "road"
+    },
+    {
+      "a": "kamakura",
+      "b": "kewaizaka",
+      "mode": "walk",
+      "terrain": "road"
+    },
+    {
+      "a": "kewaizaka",
+      "b": "genjiyama",
+      "mode": "walk",
+      "terrain": "hike"
+    },
+    {
+      "a": "genjiyama",
+      "b": "zeniarai",
+      "mode": "walk",
+      "terrain": "road"
+    },
+    {
+      "a": "genjiyama",
+      "b": "daibutsu-pass",
+      "mode": "walk",
+      "terrain": "hike"
+    },
+    {
+      "a": "daibutsu-pass",
+      "b": "daibutsu",
+      "mode": "walk",
+      "terrain": "hike"
+    }
+  ],
+  "routes": [
+    {
+      "id": "genji-pass",
+      "title": "鎌倉駅から仮粧坂・源氏山へ",
+      "stops": [
+        "kamakura",
+        "kewaizaka",
+        "genjiyama",
+        "zeniarai",
+        "kamakura"
+      ],
+      "terrain": "短い山道と坂道を含む",
+      "intro": "鎌倉駅西口から英勝寺付近を経て仮粧坂へ向かい、源氏山公園と銭洗弁財天を巡る考え方です。駅への帰り道も含めて、見学と休憩の時間を計画しよう。",
+      "inquiry": "切通へ向かう道と、駅へ戻る道を公式地図で探そう。坂道や立ち止まる時間を、どのように見積もる？",
+      "source": "https://education.trip-kamakura.com/",
+      "notice": "学習用の見学順の提案です。山道・滑りやすい坂があるため、実際に歩く前に先生が通行情報と現地の道を確かめます。"
+    },
+    {
+      "id": "daibutsu-hike",
+      "title": "鎌倉駅から山道を通って大仏切通へ",
+      "stops": [
+        "kamakura",
+        "zeniarai",
+        "genjiyama",
+        "daibutsu-pass",
+        "daibutsu",
+        "hase"
+      ],
+      "terrain": "長い山道・分岐・急な道を含む",
+      "intro": "鎌倉駅西口から銭洗弁財天・源氏山公園へ進み、葛原岡・大仏ハイキングコースの大仏方面と切通方面への分岐を調べるコースです。切通を見学した後、大仏や長谷駅へ向かう道を計画しよう。",
+      "inquiry": "駅から公園までの道と、公園から先の山道を分けて調べよう。班の体力・休憩・集合時刻を考えると、このルートを選べる？",
+      "source": "https://www.trip-kamakura.com/model_course/detail.php?id=45",
+      "notice": "公式の掲載コースは北鎌倉駅発です。ここでは鎌倉駅から源氏山へ合流する学習案として紹介しています。所要時間をそのまま流用せず、分岐・通行状況・下見を先生と確認しよう。"
+    }
+  ]
+}

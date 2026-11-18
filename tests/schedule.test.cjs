@@ -1,0 +1,15 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
+require('../src/core.js');require('../src/schedule.js');
+const lesson=JSON.parse(fs.readFileSync(__dirname+'/../src/lesson.json'));
+const template=JSON.parse(fs.readFileSync(__dirname+'/../src/xlsx-template.json'));
+const s={team:'検証班',tripDate:'2026-11-10',members:'地図係・時刻係',scheduleNote:'',totalFare:0,schedule:[KQS.createRow({start:'09:00',end:'09:20',from:'鶴岡八幡宮',activity:'まちづくりを調べる',kind:'見学',transport:'',minutes:20,fare:0,evidence:'公式資料と地図で調べる。',owner:'地図係'})],expenses:[{place:'見学料金の動作確認',kind:'拝観・入館',before:2000,amount:300,after:1700,reason:'2000円から300円を引く。'}],cashRemaining:1700};
+test('たたき台に児童が入力した時間をそのままコピーする',()=>{const state={legs:[{from:'hachiman',to:'kamakura',mode:'walk',depart:'09:00',arrive:'09:17',duration:17,evidence:'班の予想'}],visits:{kamakura:{time:'09:30'}},notes:{kamakura:'駅のメモ'},plan:[]};const rows=KQS.fromJourney(lesson,state);assert.equal(rows[0].end,'09:17');assert.equal(rows[0].minutes,17);assert.equal(rows[1].start,'09:17');assert.equal(rows[1].end,'09:30');assert.equal(rows[1].minutes,'');});
+test('未体験の見学プランに時間を勝手に補完しない',()=>{const rows=KQS.fromJourney(lesson,{legs:[],visits:{},notes:{},plan:['daibutsu']});assert.equal(rows[0].start,'09:00');assert.equal(rows[0].end,'');assert.equal(rows[1].start,'');assert.equal(rows[1].minutes,'');});
+test('予定表の重なりには答えでなく問い返す',()=>{const rows=[KQS.createRow({start:'09:00',end:'09:30'}),KQS.createRow({start:'09:20',end:'10:00'})];assert.ok(KQS.reviewRows(rows).some(x=>x.includes('重なって')));});
+test('CSVで空欄と0円を区別し日本語と改行を保持する',()=>{const csv=KQS.csv(lesson,s);assert.ok(csv.startsWith('\ufeff'));assert.ok(csv.includes('"09:20"'));assert.ok(csv.includes('"0"'));assert.ok(csv.includes('検証班'));});
+test('CSVの自由記述を数式として実行させない',()=>{const other=JSON.parse(JSON.stringify(s));other.schedule[0].evidence='=HYPERLINK("https://example.org")';assert.ok(KQS.csv(lesson,other).includes("'=HYPERLINK"));});
+test('Excelには時刻を数値として出力し、計算式を追加しない',()=>{const parts=KQS.workbookParts(lesson,s,template),sheet=parts['xl/worksheets/sheet1.xml'];assert.match(sheet,/<c r="B9"[^>]*><v>0.375<\/v>/);assert.ok(!/<f[ >]/.test(sheet));assert.ok(sheet.includes('まちづくりを調べる'));assert.ok(!sheet.includes('ブラウザで入力'));});
+test('Excelのお金の記録は児童が入力した残金を保存する',()=>{const parts=KQS.workbookParts(lesson,s,template);assert.ok(parts['xl/worksheets/sheet2.xml'].includes('<v>1700</v>'));assert.ok(parts['xl/workbook.xml'].includes('お金の計画'));});
+test('100件を超える予定表と範囲外の時刻を拒否する',()=>{assert.equal(KQS.validateRows(Array.from({length:101},()=>KQS.createRow())),false);assert.equal(KQS.validateRows([KQS.createRow({start:'25:00'})]),false);});
+test('ExcelファイルのZIPを生成できる',()=>{const data=KQS.xlsx(lesson,s,template);assert.equal(new DataView(data.buffer).getUint32(0,true),0x04034b50);});
+if(process.env.KQ_EXPORT_QA){const dir=__dirname+'/../outputs/9bc288992453';fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(dir+'/schedule-export-test.xlsx',KQS.xlsx(lesson,s,template));fs.writeFileSync(dir+'/schedule-export-test.csv',KQS.csv(lesson,s));}
