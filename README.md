@@ -17,6 +17,10 @@
 
 初期教材には23地点があります。出発は鶴岡八幡宮、必須ポイントは鎌倉大仏と江ノ島駅、ゴールは新江ノ島水族館です。
 
+## 鎌倉クイズ
+
+冒険マップ上部の「鎌倉クイズ」から、やさしい・ふつう・難しい・激ムズの4段階を選べます。各20問の四択です。回答後に正解・解説・資料へのリンクが表示されます。
+
 ## 先生の準備室
 
 1. 出発・ゴール・必須チェックポイント、出発／集合時刻、切符購入時間、交通費予算、発見メモの必須条件を設定します。
@@ -61,7 +65,7 @@ Python 3とNode.js（標準機能のみ）を使います。
 
 ```sh
 python3 scripts/build.py
-node --test tests/core.test.cjs tests/schedule.test.cjs tests/learning.test.cjs
+node --test tests/*.test.cjs
 ```
 
 `src/lesson.json` が教材、`src/core.js` が検証と経路、`src/app.js` が画面、`src/style.css` が表示です。ビルドすると `dist/index.html` とルートの `index.html` が生成されます。Sites版は `dist` を配信します。

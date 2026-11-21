@@ -18,11 +18,12 @@ def collect(v):
         for x in v:collect(x)
     elif isinstance(v,dict):
         for x in v.values():collect(x)
-collect(json.loads((root/'src/lesson.json').read_text()))
-for name in ['app.js','extras.js','learning.js','core.js','schedule.js']:
+for name in ['lesson.json', 'quiz-bank.json']:
+    collect(json.loads((root/'src'/name).read_text()))
+for name in ['app.js','extras.js','learning.js','core.js','schedule.js','quiz.js']:
     texts.extend(japanese.findall((root/'src'/name).read_text()))
 counts=collections.defaultdict(collections.Counter)
-for text in set(texts):
+for text in sorted(set(texts)):
     for token in tokenizer.tokenize(text):
         if kanji.search(token.surface) and token.reading!='*':counts[token.surface][hiragana(token.reading)]+=1
 readings={key:counter.most_common(1)[0][0] for key,counter in counts.items()}

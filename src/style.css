@@ -13,3 +13,20 @@
 @media(max-width:760px){.collection-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.schedule-meta{grid-template-columns:1fr}.schedule-meta .span2{grid-column:1}.schedule-table-wrap{border:0;overflow:visible}.schedule-table{min-width:0;display:block}.schedule-table thead{display:none}.schedule-table tbody{display:grid;gap:15px}.schedule-table tr{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:13px;background:#f1f4e8;border:1px solid var(--line);border-radius:12px}.schedule-table td,.schedule-table tr:nth-child(2n) td{display:block;border:0;padding:0;background:none}.schedule-table td:before{content:attr(data-label);display:block;font-size:9px;color:var(--muted);margin-bottom:4px}.schedule-table td:nth-child(1){grid-column:1/-1;font-weight:800;color:var(--green);display:flex;gap:5px}.schedule-table td:nth-child(1):before{content:'予定'}.schedule-table td:nth-child(6),.schedule-table td:nth-child(9){grid-column:1/-1}.schedule-table td:nth-child(6){display:flex;gap:7px;flex-wrap:wrap}.schedule-table td:nth-child(6):before{width:100%}.schedule-table input,.schedule-table input[type=number],.schedule-table textarea{min-width:0!important;max-width:none;width:100%}.schedule-table td:nth-child(6) select{width:calc(50% - 4px)}.schedule-row-tools{grid-column:1/-1;display:flex!important;gap:6px;justify-content:flex-end}.schedule-row-tools .btn{display:inline-flex}.schedule-table th,.schedule-table td{font-size:12px}}
 @media(max-width:560px){.nav-btn{padding-left:8px;padding-right:8px;font-size:10px;gap:4px}.nav-btn .icon{width:16px;height:16px}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.collection-card{padding:13px 10px}.collection-card b{font-size:11px}.collection-art{width:65px;height:65px}}
 @media print{.schedule-meta,.schedule-table input,.schedule-table select,.schedule-table textarea{display:none!important}.schedule-table{min-width:0;font-size:8pt;display:table}.schedule-table thead{display:table-header-group}.schedule-table tbody{display:table-row-group}.schedule-table tr{display:table-row}.schedule-table td{display:table-cell;font-size:8pt;padding:5px;border-bottom:1px solid #ccc}.schedule-table-wrap{overflow:visible;border:0}.schedule-table td:before{display:none}.schedule-table td .print-only{display:block;white-space:pre-wrap}.schedule-table th{color:black;background:white;font-weight:700}.schedule-table tr{break-inside:avoid}}
+
+.map-heading { flex-wrap: wrap; }
+.map-heading-start { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.map-heading .map-quiz-entry {
+  min-height: 44px;
+  padding: 6px 13px;
+  color: #3c4f31;
+  background: #faf0cd;
+  border: 1px solid #cbbd88;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.map-heading .map-quiz-entry:hover { background: #f4e3ac; }
+@media (max-width: 560px) {
+  .map-heading-start { gap: 8px; }
+  .map-heading .map-quiz-entry { padding: 5px 9px; font-size: 12px; }
+}

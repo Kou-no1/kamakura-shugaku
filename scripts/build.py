@@ -2,10 +2,18 @@ from pathlib import Path
 import json,shutil,urllib.parse
 root=Path(__file__).resolve().parents[1]
 lesson=json.loads((root/'src/lesson.json').read_text())
-css=(root/'src/style.css').read_text()+'\n'+(root/'src/learning.css').read_text()
+css='\n'.join((root/'src'/name).read_text() for name in ['style.css','learning.css','quiz.css'])
 template=(root/'src/xlsx-template.json').read_text().replace('<','\\u003c')
 readings=(root/'src/ruby-dictionary.json').read_text().replace('<','\\u003c')
-app=(root/'src/app.js').read_text().replace('// @LEARNING@',(root/'src/learning.js').read_text()).replace('// @EXTRAS@',(root/'src/extras.js').read_text())
+quiz_bank=json.dumps(
+    json.loads((root/'src/quiz-bank.json').read_text()),
+    ensure_ascii=False, separators=(',', ':')
+).replace('<', '\\u003c')
+app=(root/'src/app.js').read_text()
+quiz_module='const QUIZ_BANK = '+quiz_bank+';\n'+(root/'src/quiz.js').read_text()
+app=app.replace('// @QUIZ@', quiz_module)
+for marker, filename in [('// @LEARNING@', 'learning.js'), ('// @EXTRAS@', 'extras.js')]:
+    app=app.replace(marker, (root/'src'/filename).read_text())
 js=(root/'src/core.js').read_text()+'\n'+(root/'src/schedule.js').read_text()+'\nglobalThis.KRDictionary='+readings+';\n'+(root/'src/ruby.js').read_text()+'\nconst KQTemplate='+template+';\n'+app
 data=json.dumps(lesson,ensure_ascii=False).replace('<','\\u003c')
 icon='data:image/svg+xml,'+urllib.parse.quote((root/'icon/favicon.svg').read_text(),safe='')
